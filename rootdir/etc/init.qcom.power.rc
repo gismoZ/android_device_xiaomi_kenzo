@@ -1,4 +1,5 @@
 on boot
+
     # Update foreground cpuset now that processors are up
     # reserve CPU 3 for the top app and camera daemon
     write /dev/cpuset/foreground/cpus 0-2,4-5
