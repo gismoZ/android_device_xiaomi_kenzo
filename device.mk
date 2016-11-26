@@ -77,9 +77,15 @@ PRODUCT_PACKAGES += \
     audio.primary.msm8952 \
     audio.r_submix.default \
     audio.usb.default \
+<<<<<<< HEAD:device.mk
+=======
+    libaudio-resampler \
+    libaudioroute \
+>>>>>>> cc0933c... msm8956: Build missing packages:msm8956.mk
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
+    libtinycompress \
     tinymix
 
 PRODUCT_COPY_FILES += \
@@ -117,6 +123,10 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
+    gps.msm8952 \
+    libcurl
+
+PRODUCT_PACKAGES += \
     flp.conf \
     gps.conf \
     izat.conf \
@@ -124,21 +134,28 @@ PRODUCT_PACKAGES += \
     sap.conf \
     xtwifi.conf
 
+# IPA Manager
 PRODUCT_PACKAGES += \
+<<<<<<< HEAD:device.mk
     gps.msm8952
+=======
+    ipacm \
+    IPACM_cfg.xml
+>>>>>>> cc0933c... msm8956: Build missing packages:msm8956.mk
 
-# IPACM
+# IPC router config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+
+# IPv6
 PRODUCT_PACKAGES += \
-    IPACM_cfg.xml \
-    ipacm
+    ebtables \
+    ethertypes \
+    libebtc
 
 # IRQ
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance_little_big.conf:system/vendor/etc/msm_irqbalance_little_big.conf
-
-# IRSC
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -165,6 +182,7 @@ PRODUCT_COPY_FILES += \
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
+    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
