@@ -114,6 +114,16 @@ ifeq ($(HOST_OS),linux)
 endif
 WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
+# Dex
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+
 # Display
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
