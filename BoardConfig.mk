@@ -63,7 +63,7 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := kenzo
+TARGET_OTA_ASSERT_DEVICE := kenzo,kate
 
 # Audio
 AUDIO_FEATURE_ENABLED_ACDB_LICENSE := true
