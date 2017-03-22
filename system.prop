@@ -18,7 +18,7 @@ persist.audio.fluence.audiorec=false
 persist.audio.fluence.speaker=true
 persist.audio.fluence.spk.mono=true
 persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=true
+persist.audio.fluence.voicerec=false
 persist.sys.button_jack_profile=volume
 persist.sys.button_jack_switch=0
 
