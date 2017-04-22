@@ -170,6 +170,8 @@ on post-fs
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
+    # Start qseecomd before gx_fpd runs
+    start qseecomd
 
 # msm specific files that need to be created on /data
 on post-fs-data
