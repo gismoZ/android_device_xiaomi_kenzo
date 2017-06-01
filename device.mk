@@ -77,11 +77,8 @@ PRODUCT_PACKAGES += \
     audio.primary.msm8952 \
     audio.r_submix.default \
     audio.usb.default \
-<<<<<<< HEAD:device.mk
-=======
     libaudio-resampler \
     libaudioroute \
->>>>>>> cc0933c... msm8956: Build missing packages:msm8956.mk
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
@@ -136,12 +133,8 @@ PRODUCT_PACKAGES += \
 
 # IPA Manager
 PRODUCT_PACKAGES += \
-<<<<<<< HEAD:device.mk
-    gps.msm8952
-=======
     ipacm \
     IPACM_cfg.xml
->>>>>>> cc0933c... msm8956: Build missing packages:msm8956.mk
 
 # IPC router config
 PRODUCT_COPY_FILES += \
