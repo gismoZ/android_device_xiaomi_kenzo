@@ -203,6 +203,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.sh \
+    radon.sh \
     init.qcom.bt.sh
 
 PRODUCT_PACKAGES += \
