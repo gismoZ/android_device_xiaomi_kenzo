@@ -1,4 +1,11 @@
-on boot
+# USER TWEAKS
+service usertweaks /system/bin/sh /system/etc/radon.sh
+class main
+group root
+user root
+oneshot
+
+on property:dev.bootcomplete=1
 
 # SWAPPINESS
 write /proc/sys/vm/swappiness 30
@@ -18,8 +25,6 @@ chmod 666 /sys/module/qpnp_smbcharger/parameters/default_dcp_icl_ma
 chmod 666 /sys/module/qpnp_smbcharger/parameters/default_hvdcp_icl_ma
 write /sys/module/qpnp_smbcharger/parameters/default_dcp_icl_ma 2000
 write /sys/module/qpnp_smbcharger/parameters/default_hvdcp_icl_ma 2000
-
-on enable-low-power
 
 # DISABLE BCL & CORE CTL
 write /sys/module/msm_thermal/core_control/enabled 0
@@ -74,7 +79,6 @@ write /sys/module/cpu_boost/parameters/input_boost_enabled 1
 write /sys/module/cpu_boost/parameters/input_boost_freq "0:1190400 4:998400"
 write /sys/module/cpu_boost/parameters/input_boost_ms 50
 
-on property:dev.bootcomplete=1
 # SET IO SCHEDULER
 setprop sys.io.scheduler "fiops"
 
@@ -102,3 +106,6 @@ write /sys/module/wakeup/parameters/enable_netmgr_wl_ws 0
 
 # SPEAKER BOOST
 write /sys/devices/virtual/misc/soundcontrol/speaker_boost 7
+
+# RUN USERTWEAKS SERVICE
+start usertweaks
