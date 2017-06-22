@@ -107,5 +107,8 @@ write /sys/module/wakeup/parameters/enable_netmgr_wl_ws 0
 # SPEAKER BOOST
 write /sys/devices/virtual/misc/soundcontrol/speaker_boost 7
 
+# AUX/HEADPHONES BOOST
+write /sys/devices/virtual/misc/soundcontrol/volume_boost 7
+
 # RUN USERTWEAKS SERVICE
 start usertweaks
