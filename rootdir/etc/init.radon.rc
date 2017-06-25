@@ -92,7 +92,7 @@ write /sys/module/adreno_idler/parameters/adreno_idler_active N
 write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 0
 
 # DYNAMIC FSYNC
-write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
+write /sys/kernel/dyn_fsync/Dyn_fsync_active 0
 
 # DISABLE WAKELOCKS
 write /sys/module/wakeup/parameters/enable_qcom_rx_wakelock_ws 0
