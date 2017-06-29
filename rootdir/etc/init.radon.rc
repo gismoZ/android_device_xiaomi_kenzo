@@ -1,3 +1,6 @@
+# VARIABLES FOR SH
+# zrammode=3
+
 # USER TWEAKS
 service usertweaks /system/bin/sh /system/etc/radon.sh
 class main
@@ -7,8 +10,9 @@ oneshot
 
 on property:dev.bootcomplete=1
 
-# SWAPPINESS
-write /proc/sys/vm/swappiness 30
+# SWAPPINESS AND VFS CACHE PRESSURE
+write /proc/sys/vm/swappiness 20
+write /proc/sys/vm/vfs_cache_pressure 80
 
 # DT2W
 write /sys/android_touch/doubletap2wake  1
