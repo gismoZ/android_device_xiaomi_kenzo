@@ -11,8 +11,8 @@ oneshot
 on property:dev.bootcomplete=1
 
 # SWAPPINESS AND VFS CACHE PRESSURE
-write /proc/sys/vm/swappiness 20
-write /proc/sys/vm/vfs_cache_pressure 80
+write /proc/sys/vm/swappiness 60
+write /proc/sys/vm/vfs_cache_pressure 100
 
 # DT2W
 write /sys/android_touch/doubletap2wake  1
@@ -27,8 +27,10 @@ write /sys/devices/platform/kcal_ctrl.0/kcal "254 252 232"
 # CHARGING RATE
 chmod 666 /sys/module/qpnp_smbcharger/parameters/default_dcp_icl_ma
 chmod 666 /sys/module/qpnp_smbcharger/parameters/default_hvdcp_icl_ma
+chmod 666 /sys/module/qpnp_smbcharger/parameters/default_hvdcp3_icl_ma
 write /sys/module/qpnp_smbcharger/parameters/default_dcp_icl_ma 2000
 write /sys/module/qpnp_smbcharger/parameters/default_hvdcp_icl_ma 2000
+write /sys/module/qpnp_smbcharger/parameters/default_hvdcp3_icl_ma 2000
 
 # DISABLE BCL & CORE CTL
 write /sys/module/msm_thermal/core_control/enabled 0
@@ -49,11 +51,11 @@ write /sys/devices/system/cpu/cpu5/online 1
 write /sys/devices/system/cpu/cpu0/online 1
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 0
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 100
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 95
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1440000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 0
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "50 1017600:60 1190400:70 1305600:80 1382400:90 1401600:95"
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "40 1017600:50 1190400:60 1305600:70 1382400:80 1401600:90"
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 691200
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1440000
@@ -62,11 +64,11 @@ write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1440000
 write /sys/devices/system/cpu/cpu4/online 1
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay "19000 1382400:39000"
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 85
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 80
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1382400
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 0
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "85 1382400:90 1747200:95"
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "75 1382400:80 1747200:85"
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 883200
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1804800
@@ -78,9 +80,13 @@ write /sys/devices/soc.0/qcom,bcl.56/hotplug_mask 48
 write /sys/devices/soc.0/qcom,bcl.56/hotplug_soc_mask 32
 write /sys/devices/soc.0/qcom,bcl.56/mode enable
 
+# GPU SETTINGS
+write /sys/devices/soc.0/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel 6
+write /sys/devices/soc.0/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/min_pwrlevel 6
+write /sys/devices/soc.0/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/min_freq 266666667
+
 # CPU BOOST PARAMETERS
-write /sys/module/cpu_boost/parameters/input_boost_enabled 1
-write /sys/module/cpu_boost/parameters/input_boost_freq "0:1190400 4:998400"
+write /sys/module/cpu_boost/parameters/input_boost_freq "0:1305600 4:1190400"
 write /sys/module/cpu_boost/parameters/input_boost_ms 50
 
 # SET IO SCHEDULER
@@ -93,10 +99,10 @@ write /sys/module/msm_performance/parameters/touchboost 1
 write /sys/module/adreno_idler/parameters/adreno_idler_active N
 
 # ADRENO BOOST
-write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 0
+write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 1
 
-# DYNAMIC FSYNC
-write /sys/kernel/dyn_fsync/Dyn_fsync_active 0
+# FSYNC
+write /sys/module/sync/parameters/fsync_enabled 1
 
 # DISABLE WAKELOCKS
 write /sys/module/wakeup/parameters/enable_qcom_rx_wakelock_ws 0
