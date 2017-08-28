@@ -114,11 +114,11 @@ write /sys/module/wakeup/parameters/enable_timerfd_ws 0
 write /sys/module/wakeup/parameters/enable_netlink_ws 0
 write /sys/module/wakeup/parameters/enable_netmgr_wl_ws 0
 
-# SPEAKER BOOST
-write /sys/devices/virtual/misc/soundcontrol/speaker_boost 7
+# SPEAKER GAIN
+write /sys/kernel/sound_control/speaker_gain 7
 
-# AUX/HEADPHONES BOOST
-write /sys/devices/virtual/misc/soundcontrol/volume_boost 7
+# HEADPHONE GAIN
+write /sys/kernel/sound_control/headphone_gain 7 7
 
 # RUN USERTWEAKS SERVICE
 start usertweaks
