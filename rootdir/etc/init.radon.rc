@@ -11,7 +11,7 @@ oneshot
 on property:dev.bootcomplete=1
 
 # SWAPPINESS AND VFS CACHE PRESSURE
-write /proc/sys/vm/swappiness 60
+write /proc/sys/vm/swappiness 40
 write /proc/sys/vm/vfs_cache_pressure 100
 
 # DT2W
@@ -73,13 +73,6 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 883200
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1804800
 
-# ENABLE BCL & CORE CTL
-write /sys/module/msm_thermal/core_control/enabled 0
-write /sys/devices/soc.0/qcom,bcl.56/mode disable
-write /sys/devices/soc.0/qcom,bcl.56/hotplug_mask 48
-write /sys/devices/soc.0/qcom,bcl.56/hotplug_soc_mask 32
-write /sys/devices/soc.0/qcom,bcl.56/mode enable
-
 # GPU SETTINGS
 write /sys/devices/soc.0/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/default_pwrlevel 6
 write /sys/devices/soc.0/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/min_pwrlevel 6
@@ -87,7 +80,7 @@ write /sys/devices/soc.0/1c00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/devfreq/min_freq 26
 
 # CPU BOOST PARAMETERS
 write /sys/module/cpu_boost/parameters/input_boost_freq "0:1305600 4:1305600"
-write /sys/module/cpu_boost/parameters/input_boost_ms 50
+write /sys/module/cpu_boost/parameters/input_boost_ms 40
 
 # SET IO SCHEDULER
 setprop sys.io.scheduler "fiops"
