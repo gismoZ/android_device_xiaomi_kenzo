@@ -107,6 +107,10 @@ write /sys/module/wakeup/parameters/enable_timerfd_ws 0
 write /sys/module/wakeup/parameters/enable_netlink_ws 0
 write /sys/module/wakeup/parameters/enable_netmgr_wl_ws 0
 
+# CPU & GPU UV
+write /sys/devices/system/cpu/cpu0/cpufreq/GPU_mV_table "700 720 760 800 860 900 920 980 1020"
+write /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table "740 760 820 920 980 1020 1050 1060 1070 780 800 870 910 970 1020 1040"
+
 # SPEAKER GAIN
 write /sys/kernel/sound_control/speaker_gain 7
 
