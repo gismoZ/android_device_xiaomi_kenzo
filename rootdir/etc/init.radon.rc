@@ -38,6 +38,9 @@ write /sys/devices/soc.0/qcom,bcl.56/mode disable
 write /sys/devices/soc.0/qcom,bcl.56/hotplug_mask 0
 write /sys/devices/soc.0/qcom,bcl.56/hotplug_soc_mask 0
 write /sys/devices/soc.0/qcom,bcl.56/mode disable
+chmod 0644 /sys/module/msm_thermal/vdd_restriction/enable
+write /sys/module/msm_thermal/vdd_restriction/enable 0
+chmod 0444 /sys/module/msm_thermal/vdd_restriction/enable
 
 # BRING CORES ONLINE
 write /sys/devices/system/cpu/cpu0/online 1
