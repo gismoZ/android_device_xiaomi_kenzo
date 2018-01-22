@@ -215,3 +215,6 @@ WIFI_DRIVER_MODULE_NAME     := "wlan"
 
 # inherit from the proprietary version
 -include vendor/xiaomi/kenzo/BoardConfigVendor.mk
+
+# Skip CVE_2017_13154 because it breaks camera functionality.
+COMMON_GLOBAL_CPPFLAGS += -DSKIP_CVE_2017_13154
