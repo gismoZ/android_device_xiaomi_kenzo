@@ -34,6 +34,6 @@
 	swapon /dev/block/zram0
 	fi
 #HEADPHONE GAIN
-echo "3 3" > sys/kernel/sound_control/headphone_gain
+echo "7 7" > sys/kernel/sound_control/headphone_gain
 
 
