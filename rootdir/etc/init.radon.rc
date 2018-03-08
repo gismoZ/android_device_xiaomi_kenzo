@@ -14,9 +14,8 @@ on property:dev.bootcomplete=1
 write /proc/sys/vm/swappiness 40
 write /proc/sys/vm/vfs_cache_pressure 100
 
-# DT2W
+# GESTURES
 write /sys/android_touch/doubletap2wake  1
-write /sys/android_touch/vib_strength  0
 
 # KCAL
 write /sys/devices/platform/kcal_ctrl.0/kcal_sat 269
